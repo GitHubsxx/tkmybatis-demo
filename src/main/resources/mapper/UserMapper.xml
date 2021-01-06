@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.demo.dao.UserMapper">
+    <resultMap id="BaseResultMap" type="com.example.demo.entity.User">
+        <constructor>
+                <idArg column="id" jdbcType="TINYINT" javaType="Integer"/>
+                <arg column="name" jdbcType="VARCHAR" javaType="String"/>
+                <arg column="age" jdbcType="TINYINT" javaType="Integer"/>
+        </constructor>
+    </resultMap>
+    
+    <select id="aJoinB" resultMap="BaseResultMap">
+        select a.id,a.`name`,a.age from user_0 a LEFT JOIN user_1 b on a.id = b.id LIMIT 1
+    </select>
+</mapper>
+
